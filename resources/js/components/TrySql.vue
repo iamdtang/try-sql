@@ -1,7 +1,7 @@
 <template>
   <div>
     <sql-editor
-      placeholder="SELECT * FROM tracks"
+      v-bind:placeholder="sql"
       @change="setSQL"></sql-editor>
     <async-button class="mt-3" @click="executeQuery">
       Run SQL
@@ -19,12 +19,15 @@
 </template>
 
 <script>
+  const { keys, values } = Object;
+
   export default {
     data() {
       return {
+        sql: 'SELECT * FROM tracks',
         error: false,
-        headers: [],
-        rows: []
+        headers: null,
+        rows: null
       };
     },
     methods: {
@@ -52,10 +55,14 @@
         })
         .then((results) => {
           this.error = false;
-          this.headers = Object.keys(results[0]);
-          this.rows = results.map((record) => {
-            return Object.values(record);
-          });
+
+          if (results.length) {
+            this.headers = keys(results[0]);
+            this.rows = results.map((record) => values(record));
+          } else {
+            this.headers = [];
+            this.rows = [];
+          }
         }, (error) => {
           this.error = true;
         });

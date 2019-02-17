@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-striped table-sm" v-if="headers.length">
+  <table class="table table-striped table-sm" v-if="rows">
     <thead>
       <tr>
         <th v-for="header in headers">{{header}}</th>
@@ -9,8 +9,14 @@
       <tr v-for="row in rows">
         <td v-for="value in row">{{value}}</td>
       </tr>
+      <tr v-if="rows.length == 0">
+        <td>No records found.</td>
+      </tr>
     </tbody>
   </table>
+  <p v-else>
+    Run a SQL statement.
+  </p>
 </template>
 
 <script>
