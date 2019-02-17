@@ -19,8 +19,6 @@
 </template>
 
 <script>
-  const { keys, values } = Object;
-
   export default {
     data() {
       return {
@@ -54,9 +52,9 @@
         })
         .then((results) => {
           this.error = false;
-          this.headers = keys(results[0]);
+          this.headers = Object.keys(results[0]);
           this.rows = results.map((record) => {
-            return values(record);
+            return Object.values(record);
           });
         }, (error) => {
           this.error = true;
