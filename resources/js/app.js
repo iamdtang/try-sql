@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 window.Vue = require('vue');
 
@@ -20,7 +20,11 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('try-sql', require('./components/TrySql.vue').default);
+Vue.component('sql-editor', require('./components/SqlEditor.vue').default);
+Vue.component('data-table', require('./components/DataTable.vue').default);
+Vue.component('async-button', require('./components/AsyncButton.vue').default);
+Vue.component('error', require('./components/Error.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +33,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+  el: '#app'
 });
