@@ -9,7 +9,7 @@
       <tr v-for="row in rows">
         <td v-for="value in row">{{value}}</td>
       </tr>
-      <tr v-if="rows.length == 0">
+      <tr v-if="!rows.length">
         <td>No records found.</td>
       </tr>
     </tbody>
