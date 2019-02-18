@@ -3,13 +3,18 @@
     <sql-editor
       v-bind:placeholder="sql"
       @change="setSQL"></sql-editor>
-    <async-button
-      class="mt-3"
-      defaultText="Run SQL"
-      pendingText="Processing..."
-      v-bind:processing="isProcessing"
-      @click="executeQuery">
-    </async-button>
+    <div class="mt-3">
+      <async-button
+        defaultText="Run SQL"
+        pendingText="Processing..."
+        v-bind:processing="isProcessing"
+        @click="executeQuery">
+      </async-button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        @click="share">Share</button>
+    </div>
     <div class="mt-4">
       <error v-if="error">
         Looks like you have an error in your SQL.
@@ -27,9 +32,18 @@
 
   export default {
     data() {
+      let sql;
+      let { search } = window.location;
+
+      if (search.includes('?query=')) {
+        sql = window.atob(search.replace('?query=', ''));
+      } else {
+        sql = 'SELECT * FROM tracks LIMIT 10';
+      }
+
       return {
         isProcessing: false,
-        sql: 'SELECT * FROM tracks LIMIT 10',
+        sql,
         error: false,
         headers: null,
         rows: null
@@ -38,6 +52,10 @@
     methods: {
       setSQL(sql) {
         this.sql = sql;
+      },
+      share() {
+        let hashedSQL = window.btoa(this.sql);
+        window.location = `/?query=${hashedSQL}`;
       },
       executeQuery() {
         this.isProcessing = true;
