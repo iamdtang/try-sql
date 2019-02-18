@@ -11,14 +11,14 @@
   <meta property="og:title" content="Try SQL" />
   <meta property="og:description" content="An interactive playground to learn SQL without installing anything." />
   <meta property="og:url" content="https://try-sql.herokuapp.com" />
-  <!-- <meta property="og:image" content="https://davidtang.io/images/cards/elixir" /> -->
+  <meta property="og:image" content="/images/db.png" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@iamdtang" />
   <meta name="twitter:title" content="Try SQL" />
   <meta name="twitter:description" content="An interactive playground to learn SQL without installing anything." />
-  <!-- <meta name="twitter:image" content="https://davidtang.io/images/cards/elixir-thumb.png" />
-  <meta name="twitter:image:alt" content="SQL logo" /> -->
+  <meta name="twitter:image" content="/images/db.png" />
+  <meta name="twitter:image:alt" content="database icon" />
 </head>
 <body>
 
