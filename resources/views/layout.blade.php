@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>@yield('title')</title>
+  <title>@yield('title') - David Tang</title>
   <link rel="stylesheet" href="/css/app.css">
 
   <meta name="keywords" content="SQL, database, databases, interactive, structured query language">
@@ -22,7 +22,12 @@
 </head>
 <body>
 
-@yield('content')
+<div class="container-fluid" id="app">
+  @yield('content')
+  <div class="">
+    Created by <a href="https://twitter.com/iamdtang" target="_blank">@iamdtang</a>
+  </div>
+</div>
 
 <script src="/js/vendor/ace.js"></script>
 <script src="/js/app.js"></script>
