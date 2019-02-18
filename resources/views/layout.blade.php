@@ -22,12 +22,17 @@
 </head>
 <body>
 
-<div class="container-fluid" id="app">
+<div class="container-fluid" id="app" style="padding-bottom: 60px;">
   @yield('content')
-  <div class="">
-    Created by <a href="https://twitter.com/iamdtang" target="_blank">@iamdtang</a>
-  </div>
 </div>
+
+<footer class="footer">
+	<div class="container-fluid">
+    <div class="mb-3">
+      Created by <a href="https://twitter.com/iamdtang" target="_blank">@iamdtang</a>
+    </div>
+	</div>
+</footer>
 
 <script src="/js/vendor/ace.js"></script>
 <script src="/js/app.js"></script>
