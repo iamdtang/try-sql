@@ -3,8 +3,12 @@
     <sql-editor
       v-bind:placeholder="sql"
       @change="setSQL"></sql-editor>
-    <async-button class="mt-3" @click="executeQuery">
-      Run SQL
+    <async-button
+      class="mt-3"
+      defaultText="Run SQL"
+      pendingText="Processing..."
+      v-bind:processing="isProcessing"
+      @click="executeQuery">
     </async-button>
     <div class="mt-4">
       <error v-if="error">
@@ -24,7 +28,8 @@
   export default {
     data() {
       return {
-        sql: 'SELECT * FROM tracks',
+        isProcessing: false,
+        sql: 'SELECT * FROM tracks LIMIT 10',
         error: false,
         headers: null,
         rows: null
@@ -35,6 +40,7 @@
         this.sql = sql;
       },
       executeQuery() {
+        this.isProcessing = true;
         return window.fetch('/query', {
           method: 'POST',
           headers: {
@@ -65,6 +71,9 @@
           }
         }, (error) => {
           this.error = true;
+        })
+        .finally(() => {
+          this.isProcessing = false;
         });
       }
     }
