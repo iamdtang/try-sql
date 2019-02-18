@@ -22,11 +22,23 @@
 </head>
 <body>
 
+<header>
+  <h1 class="p-3">Try SQL</h1>
+</header>
+
 <div class="container-fluid" id="app" style="padding-bottom: 60px;">
+  <p class="mt-3">
+    A playground to practice SQL on a real database. This page runs against
+    <a
+      href="http://www.sqlitetutorial.net/sqlite-sample-database/"
+      target="_blank">
+      this SQLite database.
+    </a>
+  </p>
   @yield('content')
 </div>
 
-<footer class="footer">
+<footer>
 	<div class="container-fluid">
     <div class="mb-3">
       Created by <a href="https://twitter.com/iamdtang" target="_blank">@iamdtang</a>
