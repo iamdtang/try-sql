@@ -14,6 +14,7 @@
     props: ['placeholder'],
     mounted() {
       let editor = window.ace.edit(this.$refs.editor);
+      editor.setFontSize('13pt');
       editor.setValue(this.placeholder);
       editor.setShowPrintMargin(false);
       editor.setTheme('ace/theme/monokai');
