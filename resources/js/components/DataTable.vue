@@ -14,9 +14,6 @@
       </tr>
     </tbody>
   </table>
-  <p v-else>
-    Run a SQL statement.
-  </p>
 </template>
 
 <script>
