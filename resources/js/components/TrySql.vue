@@ -12,7 +12,7 @@
       </async-button>
       <button
         type="button"
-        class="btn btn-secondary"
+        class="btn btn-secondary ml-2"
         @click="share">Share</button>
     </div>
     <div class="mt-4">
