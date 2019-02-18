@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <title>@yield('title')</title>
   <link rel="stylesheet" href="/css/app.css">
+
+  <meta name="keywords" content="SQL, database, databases, interactive, structured query language">
+  <meta name="description" content="An interactive playground to learn SQL without installing anything.">
+
+  <meta property="og:title" content="SQL Playground" />
+  <meta property="og:description" content="An interactive playground to learn SQL without installing anything." />
+  <meta property="og:url" content="https://try-sql.herokuapp.com" />
+  <!-- <meta property="og:image" content="https://davidtang.io/images/cards/elixir" /> -->
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@iamdtang" />
+  <meta name="twitter:title" content="SQL Playground" />
+  <meta name="twitter:description" content="An interactive playground to learn SQL without installing anything." />
+  <!-- <meta name="twitter:image" content="https://davidtang.io/images/cards/elixir-thumb.png" />
+  <meta name="twitter:image:alt" content="SQL logo" /> -->
 </head>
 <body>
 
