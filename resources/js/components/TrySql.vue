@@ -41,25 +41,11 @@
       },
       executeQuery() {
         this.isProcessing = true;
-        return window.fetch('/query', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ sql: this.sql })
+
+        window.axios.post('/query', {
+          sql: this.sql
         })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            return new Promise((resolve, reject) => {
-              response.text().then((text) => {
-                reject(text);
-              });
-            });
-          }
-        })
-        .then((results) => {
+        .then(({ data: results }) => {
           this.error = false;
 
           if (results.length) {
