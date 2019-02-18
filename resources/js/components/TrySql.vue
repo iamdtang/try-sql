@@ -35,8 +35,8 @@
       let sql;
       let { search } = window.location;
 
-      if (search.includes('?query=')) {
-        sql = window.atob(search.replace('?query=', ''));
+      if (search.includes('?q=')) {
+        sql = window.atob(search.replace('?q=', ''));
       } else {
         sql = 'SELECT * FROM tracks LIMIT 10';
       }
@@ -55,7 +55,7 @@
       },
       share() {
         let hashedSQL = window.btoa(this.sql);
-        window.location = `/?query=${hashedSQL}`;
+        window.location = `/?q=${hashedSQL}`;
       },
       executeQuery() {
         this.isProcessing = true;
