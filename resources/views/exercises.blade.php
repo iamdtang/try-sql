@@ -65,10 +65,23 @@
       <dd>SELECT tracks.Name as trackName, genres.Name as genreName FROM tracks INNER JOIN genres ON genres.GenreId = tracks.GenreId WHERE genres.Name = "Metal"</dd>
 
       <dt>Give me the album name, track name, and artist for all tracks</dt>
-      <dd></dd>
+      <dd>
+        select tracks.Name as trackName, albums.Title as albumTitle, artists.Name as artistName
+        from tracks
+        inner join albums on albums.AlbumId = tracks.AlbumId
+        inner join artists on albums.ArtistId = artists.ArtistId
+      </dd>
 
       <dt>Give me all tracks for the playlist "Grunge"</dt>
-      <dd></dd>
+      <dd>
+        select playlists.Name as playlistName, tracks.Name as trackName, artists.Name as artistName
+        from playlist_track
+        inner join playlists on playlists.PlaylistId = playlist_track.PlaylistId
+        inner join tracks on tracks.TrackId = playlist_track.TrackId
+        inner join albums on albums.AlbumId = tracks.AlbumId
+        inner join artists on albums.ArtistId = artists.ArtistId
+        where playlists.Name = "Grunge"
+      </dd>
     </dl>
   </div>
 @endsection
