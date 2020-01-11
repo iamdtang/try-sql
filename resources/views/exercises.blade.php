@@ -66,21 +66,21 @@
 
       <dt>Give me the album name, track name, and artist for all tracks</dt>
       <dd>
-        select tracks.Name as trackName, albums.Title as albumTitle, artists.Name as artistName
-        from tracks
-        inner join albums on albums.AlbumId = tracks.AlbumId
-        inner join artists on albums.ArtistId = artists.ArtistId
+        SELECT tracks.Name as trackName, albums.Title as albumTitle, artists.Name as artistName
+        FROM tracks
+        INNER JOIN albums ON albums.AlbumId = tracks.AlbumId
+        INNER JOIN artists ON albums.ArtistId = artists.ArtistId
       </dd>
 
       <dt>Give me all tracks for the playlist "Grunge"</dt>
       <dd>
-        select playlists.Name as playlistName, tracks.Name as trackName, artists.Name as artistName
-        from playlist_track
-        inner join playlists on playlists.PlaylistId = playlist_track.PlaylistId
-        inner join tracks on tracks.TrackId = playlist_track.TrackId
-        inner join albums on albums.AlbumId = tracks.AlbumId
-        inner join artists on albums.ArtistId = artists.ArtistId
-        where playlists.Name = "Grunge"
+        SELECT playlists.Name as playlistName, tracks.Name as trackName, artists.Name as artistName
+        FROM playlist_track
+        INNER JOIN playlists ON playlists.PlaylistId = playlist_track.PlaylistId
+        INNER JOIN tracks ON tracks.TrackId = playlist_track.TrackId
+        INNER JOIN albums ON albums.AlbumId = tracks.AlbumId
+        INNER JOIN artists ON albums.ArtistId = artists.ArtistId
+        WHERE playlists.Name = "Grunge"
       </dd>
     </dl>
   </div>
