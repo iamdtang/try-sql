@@ -55,14 +55,33 @@
 
     <h2>Joining Tables</h2>
     <dl>
-      <dt>Give me the track and genre name for all tracks</dt>
-      <dd>SELECT genres.Name AS genreName, tracks.Name AS trackName FROM tracks INNER JOIN genres ON genres.GenreId = tracks.GenreId</dd>
+      <dt>Give me the track and genre name for all tracks (JOIN using WHERE clause)</dt>
+      <dd>
+        SELECT genres.Name AS genreName, tracks.Name AS trackName 
+        FROM tracks, genres
+        WHERE genres.GenreId = tracks.GenreId
+      </dd>
+      
+      <dt>Give me the track and genre name for all tracks (JOIN using INNER JOIN)</dt>
+      <dd>
+        SELECT genres.Name AS genreName, tracks.Name AS trackName 
+        FROM tracks 
+        INNER JOIN genres ON genres.GenreId = tracks.GenreId
+      </dd>
 
       <dt class="exercise">Give me the album name and track name for all tracks</dt>
-      <dd>SELECT Title, Name FROM tracks INNER JOIN albums ON albums.AlbumId = tracks.AlbumId</dd>
+      <dd>
+        SELECT Title, Name FROM tracks
+        INNER JOIN albums ON albums.AlbumId = tracks.AlbumId
+       </dd>
 
       <dt>Find all tracks with genre "Metal"</dt>
-      <dd>SELECT tracks.Name as trackName, genres.Name as genreName FROM tracks INNER JOIN genres ON genres.GenreId = tracks.GenreId WHERE genres.Name = "Metal"</dd>
+      <dd>
+        SELECT tracks.Name as trackName, genres.Name as genreName
+        FROM tracks 
+        INNER JOIN genres ON genres.GenreId = tracks.GenreId 
+        WHERE genres.Name = "Metal"
+      </dd>
 
       <dt>Give me the album name, track name, and artist for all tracks</dt>
       <dd>
